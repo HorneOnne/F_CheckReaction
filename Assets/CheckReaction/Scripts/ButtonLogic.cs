@@ -22,12 +22,24 @@ namespace CheckReaction
         [SerializeField] private TMP_FontAsset _pressedFont;
 
 
-        private const string IDLE_TEXT = "HOLD THE BUTTON";
-        private const string PRESSED_TEXT = "release the \nbutton \nwhen the \nlights go \nout";
+        private string _idleText = "HOLD THE BUTTON";
+        private string _pressedText = "release the \nbutton \nwhen the \nlights go \nout";
+
+        private void OnEnable()
+        {
+            LanguageManager.OnLanguageChanged += LoadLanguague;
+        }
+
+        private void OnDisable()
+        {
+            LanguageManager.OnLanguageChanged -= LoadLanguague;
+        }
+
 
 
         private void Start()
         {
+            LoadLanguague();
             LoadIdleBtn();
         }
 
@@ -59,7 +71,7 @@ namespace CheckReaction
             _btnImage.color = _idleBtnColor;
             _btnText.fontSize = 60;
             _btnText.font = _idleFont;
-            _btnText.text = IDLE_TEXT;
+            _btnText.text = _idleText;
         }
 
         private void LoadPressedBtn()
@@ -67,7 +79,14 @@ namespace CheckReaction
             _btnImage.color = _pressedBtnColor;
             _btnText.fontSize = 40;
             _btnText.font = _pressedFont;
-            _btnText.text = PRESSED_TEXT;
+            _btnText.text = _pressedText;
+        }
+
+
+        private void LoadLanguague()
+        {
+            _idleText = LanguageManager.Instance.GetWord(LanguageManager.Instance.CurrentLanguague, "HOLD THE \nBUTTON");
+            _pressedText = LanguageManager.Instance.GetWord(LanguageManager.Instance.CurrentLanguague, "release the \nbutton when \nthe lights go \nout");
         }
     }
 

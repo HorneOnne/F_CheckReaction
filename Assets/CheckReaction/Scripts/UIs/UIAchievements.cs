@@ -50,22 +50,6 @@ namespace CheckReaction
 
         private void LoadLanguague()
         {
-            //switch (LanguageManager.Instance.CurrentLanguague)
-            //{
-            //    default:
-            //    case LanguageManager.Languague.Eng:
-            //        _playBtnText.fontSize = 70;
-            //        _settingsBtnText.fontSize = 70;
-            //        _languageBtnText.fontSize = 70;
-            //        break;
-            //    case LanguageManager.Languague.Rus:
-            //        _playBtnText.fontSize = 55;
-            //        _settingsBtnText.fontSize = 55;
-            //        _languageBtnText.fontSize = 55;
-            //        break;
-            //}
-
-
             _backBtnText.text = LanguageManager.Instance.GetWord(LanguageManager.Instance.CurrentLanguague, "back");
             _headingText.text = LanguageManager.Instance.GetWord(LanguageManager.Instance.CurrentLanguague, "ACHIEVEMENTS");
         }

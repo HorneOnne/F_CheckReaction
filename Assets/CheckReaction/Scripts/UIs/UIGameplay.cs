@@ -13,6 +13,7 @@ namespace CheckReaction
         [SerializeField] private TextMeshProUGUI _backBtnText;
         [SerializeField] private TextMeshProUGUI _bestText;
         [SerializeField] private TextMeshProUGUI _timerText;
+        [SerializeField] private TextMeshProUGUI _holdTheBtnText;
 
         [Header("Colors")]
         [SerializeField] private Color _passedColor;
@@ -28,18 +29,23 @@ namespace CheckReaction
         // Cached
         private float _updateTimerFrequence = 0.05f;
         private float _updateTimerFrequenceCount = 0.0f;
+        private string _bestString = "";
 
 
         private void OnEnable()
         {
-            //LanguageManager.OnLanguageChanged += LoadLanguague;
+            LanguageManager.OnLanguageChanged += LoadLanguague;
             GameLogicHandler.OnNodePasseed += LoadNodesUI;
+
+            GameplayManager.OnPlaying += LoadBest;
         }
 
         private void OnDisable()
         {
-            //LanguageManager.OnLanguageChanged -= LoadLanguague;
+            LanguageManager.OnLanguageChanged -= LoadLanguague;
             GameLogicHandler.OnNodePasseed -= LoadNodesUI;
+
+            GameplayManager.OnPlaying -= LoadBest;
         }
 
 
@@ -48,6 +54,7 @@ namespace CheckReaction
             CreateNodes();         
             LoadNodesUI(GameLogicHandler.Instance.NumNodePassed);
             LoadLanguague();
+            LoadBest();
 
             _backBtn.onClick.AddListener(() =>
             {
@@ -81,29 +88,22 @@ namespace CheckReaction
 
         private void LoadLanguague()
         {
-            //switch (LanguageManager.Instance.CurrentLanguague)
-            //{
-            //    default:
-            //    case LanguageManager.Languague.English:
-            //        _playBtnText.fontSize = 70;
-            //        _settingsBtnText.fontSize = 70;
-            //        _languageBtnText.fontSize = 70;
-            //        break;
-            //    case LanguageManager.Languague.Norwegian:
-            //    case LanguageManager.Languague.Italian:
-            //    case LanguageManager.Languague.German:
-            //        _playBtnText.fontSize = 55;
-            //        _settingsBtnText.fontSize = 55;
-            //        _languageBtnText.fontSize = 55;
-            //        break;
-            //}
-
-
-            //_playBtnText.text = LanguageManager.Instance.GetWord(LanguageManager.Instance.CurrentLanguague, "PLAY");
-            //_settingsBtnText.text = LanguageManager.Instance.GetWord(LanguageManager.Instance.CurrentLanguague, "SETTINGS");
-            //_languageBtnText.text = LanguageManager.Instance.GetWord(LanguageManager.Instance.CurrentLanguague, "LANGUAGE");
+            _backBtnText.text = LanguageManager.Instance.GetWord(LanguageManager.Instance.CurrentLanguague, "back");
+            _bestString = LanguageManager.Instance.GetWord(LanguageManager.Instance.CurrentLanguague, "best");
         }   
 
+
+        private void LoadBest()
+        {
+            if(GameManager.Instance.RecordList.Count != 0)
+            {
+                _bestText.text = $"{_bestString} \n{Utilities.TimeToText(GameManager.Instance.RecordList[0])}";
+            }
+            else
+            {
+                _bestText.text = $"{_bestString} \n-";
+            }
+        }
 
         private void CreateNodes()
         {

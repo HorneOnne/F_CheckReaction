@@ -46,7 +46,7 @@ namespace CheckReaction
 
         public void SetRecord(float score)
         {
-            RecordList = AddAndSort(RecordList, score, 10);
+            RecordList = AddAndSort(RecordList, score, 7);
         }
 
         private List<float> AddAndSort(List<float> originalList, float newValue, int maxLength)

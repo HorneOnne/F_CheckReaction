@@ -12,4 +12,6 @@ EditorBuildSettings:
     path: Assets/CheckReaction/Scenes/GameplayScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 641f71392db4eb946a2fffc8b47eb8a3, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 1af53db6e49482240aaebecd21df7496, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 116e9b4cfce63d0439d3f6e333d5dd5f, type: 2}

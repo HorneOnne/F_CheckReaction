@@ -25,7 +25,7 @@ namespace CheckReaction
             {"back", new WordDict("back", "назад")},
             {"sound", new WordDict("sound", "звук")},
             {"FASTER", new WordDict("FASTER", "быстрее")},
-            {"HOLD THE BUTTON", new WordDict("HOLD THE \nBUTTON", "зажми \nкнопку")},
+            {"HOLD THE \nBUTTON", new WordDict("HOLD THE \nBUTTON", "зажми \nкнопку")},
             {"too early", new WordDict("too early", "слишком рано")},
             {"best", new WordDict("best", "лучший")},
             {"release the \nbutton when \nthe lights go \nout", 

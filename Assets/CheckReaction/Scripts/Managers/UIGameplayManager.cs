@@ -19,12 +19,13 @@ namespace CheckReaction
         private void Start()
         {
             CloseAll();
+            DisplayGameplayMenu(true);
         }
 
         public void CloseAll()
-        {          
+        {
+            DisplayGameplayMenu(false);
             DisplayGameoverMenu(false);
-     
         }
 
 

@@ -71,6 +71,8 @@ namespace CheckReaction
                     {
                         GameplayManager.Instance.ChangeGameState(GameplayManager.GameState.STARTTIMER);
                     }
+
+                    SoundManager.Instance.PlaySound(SoundType.Hit, false);
                 }
             }
         }

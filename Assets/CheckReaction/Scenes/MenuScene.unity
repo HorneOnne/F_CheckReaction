@@ -1110,7 +1110,7 @@ MonoBehaviour:
     audioClips:
     - {fileID: 8300000, guid: 00f957fc2a8f4324f8c1bf4655ba4ec5, type: 3}
   SFXVolume: 1
-  BackgroundSoundClip: {fileID: 0}
+  BackgroundSoundClip: {fileID: 8300000, guid: afcc354b0578d3a4d96201483ac81180, type: 3}
   BackgroundVolume: 1
   isMusicActive: 1
   isSoundFXActive: 1
@@ -4565,7 +4565,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683388696}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 519420031}
@@ -4734,7 +4734,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838736849}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 519420031}
